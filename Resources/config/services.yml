@@ -1,4 +1,8 @@
 services:
-    funddy.persistence.doctrine.odm.objectrepositorymanager:
+    funddy.persistence.doctrine.odm.documentrepositorymanager:
         class: Funddy\Component\Persistence\Doctrine\ODM\ObjectRepositoryManager
-        arguments: [@doctrine.odm.mongodb.document_manager, Funddy\Component\Persistence\Doctrine\ODM\DocumentRepository]
+        arguments: [@?doctrine.odm.mongodb.document_manager, Funddy\Component\Persistence\Doctrine\ODM\DocumentRepository]
+
+    funddy.persistence.doctrine.orm.entityrepositorymanager:
+        class: Funddy\Component\Persistence\Doctrine\ORM\EntityRepositoryManager
+        arguments: [@?doctrine.orm.entity_manager, Funddy\Component\Persistence\Doctrine\ORM\EntityRepository]
